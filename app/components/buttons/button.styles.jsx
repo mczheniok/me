@@ -1,5 +1,5 @@
 export const STYLES = {
-    "dark": "bg-white text-background hover:bg-orange-400 hover:text-white ",
+    "dark": "bg-white text-background hover:bg-orange-400 hover:text-white",
     "secondary": "bg-input hover:bg-grey-400",
     "transparent": "bg-transparent text-text hover:bg-orange-100/40 hover:text-orange-400",
 };
@@ -13,7 +13,7 @@ export const SHAPES = {
 };
 
 export const BORDERS = {
-    "secondary": "border border-border2",
+    "secondary": "border border-orange-100/40",
     "transparent": ''
 };
 

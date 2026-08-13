@@ -1,6 +1,7 @@
 import { Manrope, Unbounded } from "next/font/google"
 import "./globals.css";
 import { HeaderComponent } from "./components/header.component";
+import { FooterComponent } from "./components/footer.component";
 
 const UnboundedFont = Unbounded({
   style: "normal",
@@ -27,14 +28,16 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${UnboundedFont.variable} ${ManropeFont.variable} h-full antialiased`}
+      className={`${UnboundedFont.variable} ${ManropeFont.variable} antialiased`}
     >
-      <body className={`min-h-full w-full max-w-7xl mx-auto flex flex-col p-5`}>
+      <body className={`w-full max-w-7xl mx-auto overflow-x-hidden`}>
         <HeaderComponent 
           
         />
      
         {children}
+
+        <FooterComponent />
       </body>
     </html>
   );

@@ -1,14 +1,15 @@
 import Link from "next/link"
 import { HeaderSuspenseBurgerComponent } from "./header.suspense.burger.component"
 import { Suspense } from "react"
+import { HeaderScrollEffect } from "./suspense/header.onscroll.effect";
 import { HEADER_LINKS } from "@/app/config/index";
 
 export function HeaderComponent() {
     return (
         <header
-            className="w-full sticky top-0 py-1.5 z-10 h-13 flex flex-row gap-10 items-center justify-end md:justify-center"
+            className="transition-[backdrop-filter] duration-300 ease data-[blur=true]:backdrop-blur-sm w-full sticky top-0 p-5 z-10 h-13 flex flex-row gap-10 items-center justify-end md:justify-center"
         >
-            <div className="absolute left-0 font-heading text-orange-400 font-extrabold">
+            <div className="absolute left-5 font-heading text-orange-400 font-extrabold">
                 Y. Shorobura
             </div>
 
@@ -36,6 +37,10 @@ export function HeaderComponent() {
                     </div>
                 }>
                     <HeaderSuspenseBurgerComponent />
+                </Suspense>
+
+                <Suspense>
+                    <HeaderScrollEffect />
                 </Suspense>
             </div>
         </header>   
