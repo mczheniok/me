@@ -255,7 +255,7 @@ export default function Home() {
           <figcaption>
             <Image
               className="row-span-1 col-start-2 row-start-4 col-span-1 bg-white min-h-50 rounded-xl w-full"
-              src={"/assets/Screenshot 2026-08-15 at 22.01.08.png"}
+              src={"/assets/shorado-screenshot.webp"}
               alt="Screenshot of Shorado interfaces"
               width={500}
               height={500}
