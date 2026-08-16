@@ -7,7 +7,6 @@ import { Container } from "./components/decorative/container.component";
 import { LocationMouseCords } from "./components/suspense/location.mouse.cords";
 import { CardComponent } from "./components/card.component";
 
-
 export default function Home() {
   return (
     <div
