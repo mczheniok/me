@@ -30,12 +30,16 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${UnboundedFont.variable} ${ManropeFont.variable} antialiased`}
     >
-      <body className={`w-full max-w-7xl mx-auto overflow-x-hidden`}>
+      <body className={`w-full`}>
         <HeaderComponent 
           
         />
-     
-        {children}
+
+        <main
+          className="w-full"
+        >
+          {children}
+        </main>
 
         <FooterComponent />
       </body>

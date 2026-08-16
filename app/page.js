@@ -1,68 +1,68 @@
 import Image from "next/image";
-import { ShoradoLogoComponent } from "./components/logos/shorado.logo.component";
-import { ButtonLink } from "./components/buttons/button.link.component";
-import { ChevronRight, MapPin, MapPinHouse } from "lucide-react";
-import { STACK } from "./config";
-import { ShoradoLogoAnimatedComponent } from "./components/logos/shorado.logo.animated.component";
+import { ArrowUpRight, Mouse } from "lucide-react";
+import { LANGUAGES, SECTIONS, SHORADO, SHORADO_BUILD_STEPS, SHORADO_STACK, STACK, WHAT_I_BUILD } from "./config";
 import { Suspense } from "react";
-import { CategorySkillCardComponent } from "./components/skills.view.component";
-
+import { DecorativeLineComponent } from "./components/decorative/decorative.line.component";
+import { Container } from "./components/decorative/container.component";
+import { LocationMouseCords } from "./components/suspense/location.mouse.cords";
+import { CardComponent } from "./components/card.component";
 
 
 export default function Home() {
   return (
     <div
-      className="p-5"
+      className="w-full space-y-5"
     >
-      <div
-        className="w-full min-h-screen grid md:grid-cols-[1fr_40%] gap-5 items-center" 
+      <Container
+        styles="flex flex-col justify-around" 
       >
+        <div
+          className="w-full flex items-center z-100 justify-between"
+        >    
+          <span
+            className="font-mono text-text font-semibold text-sm"
+          >
+            MUNICH, DE - 2026
+          </span>
+
+          <Suspense>
+            <LocationMouseCords />
+          </Suspense>
+        </div>  
+
         <div
           className="space-y-3 z-11 max-w-145"
         >
           <h1
-            className="font-extrabold text-orange-400 font-heading tracking-tight text-5xl"
+            className="font-extrabold text-text font-heading tracking-tight text-4xl sm:text-5xl md:text-7xl"
           >
-            Yevhenii Shorobura
+            Yevhenii
+            <br />
+            Shorobura
           </h1>
 
-          <p
-            className="text-3xl font-sans font-semibold"
-          >
-            Full-stack developer building 
-              <span
-                className="text-orange-400 mx-3 font-heading"
-              >
-                Shorado
-              </span>
-            from Munich
-          </p>
-
-          <div
-            className="flex item-center gap-5 mt-5 w-8"
-          >
-            <ButtonLink
-              shape="pill"
-              border=""
-              style="dark"
-              padding="lg"
-              href="/projects"
-              className="w-40 text-center"
-            > 
-              Projects
-            </ButtonLink>
-
-            <ButtonLink
-              style="transparent"
-              href="/contanct"
-              shape="pill"
-              padding="lg"
-              border=""
-              className="flex items-center gap-5"
+          <figure>
+            <blockquote
+              cite="https://www.linkedin.com/in/yevhenii-shorobura/"
             >
-              Contact <ChevronRight />
-            </ButtonLink>
-          </div>
+              <p
+                className="font-mono"
+              >
+                I dreaming about making products whats be used milions peoples every day
+              </p>
+
+              <figcaption className="font-mono mt-2.5">
+                - Yevhenii Shorobura, <cite>About me</cite>
+              </figcaption>
+            </blockquote>
+          </figure>
+
+          <a
+            href="#about"
+            className="font-mono text-sm flex items-center gap-5 text-muted mt-10" 
+          > 
+            <Mouse size={20} /> Scroll to Explore 
+          </a>
         </div>
 
         <Image 
@@ -70,199 +70,365 @@ export default function Home() {
           height={500}
           loading="eager"
           quality={100}
-          className="h-full top-0 left-0 absolute w-full rounded-2xl object-cover z-5 pointer-events-none"
+          className="h-full top-0 left-0 rounded-xl absolute w-full object-cover z-5 pointer-events-none object-right md:object-center"
           alt="Yevhenii Shorobura Picture"
           src="/assets/me.webp"
         />
 
         <div 
-          className="absolute h-screen inset-0 z-10 top-0 pointer-events-none bg-gradient-to-t from-background to-transparent"
+          className="absolute h-screen inset-0 z-10 top-0 pointer-events-none bg-gradient-to-t from-bg to-transparent"
         />
-      </div>   
+      </Container>   
 
-      <section
-        className="grid grid-cols-6 min-h-[600px] h-auto w-full grid-rows-6 text-black gap-4"
+      <Container
+        id={SECTIONS[0].id}
+        styles="flex flex-col justify-around"
       >
         <div
-          className="flex items-center justify-between col-start-1 col-end-5 row-start-1 row-end-3 bg-white rounded-3xl"
-        >
-          <div
-            className="p-5 w-full flex flex-col items-start h-full justify-between"
-          >
-            <ShoradoLogoComponent 
-              height="60"
-              width="60"
-            />
-
-            <div
-              className="flex flex-col gap-1 items-start px-3"
-            >
-              <div
-                className="flex items-center gap-2.5 text-gray-600/30"
-              >
-                <MapPinHouse
-                  size={20}
-                />
-
-                <h5 className="font-bold tracking-tight">
-                  Ukraine
-                </h5>
-              </div>
-
-              <span 
-                className="ml-2 inline-block border-r-[3px] rounded-full border-dotted text-gray-600/30 h-10"
-              />
-
-              <div
-                className="flex items-center justify-start gap-2.5"
-              >
-                <MapPin 
-                  className="text-orange-400"
-                  size={20}
-                />
-
-                <h5 className="font-bold tracking-tight text-black">
-                  Germany
-                </h5>
-              </div>
-            </div>
-          </div>
-          
-          <div
-            className="relative w-70 h-full p-5"
-          >
-            <div
-              className="bg-gray-300 ml-1.5 rounded-3xl w-full h-full"
-            >
-
-            </div>
-
-            <div 
-              className="absolute bg-black left-0 -top-2.5 w-5 h-5 rounded-full"
-            />
-
-            <div className="h-full absolute left-2 border-2 top-5 bottom-5 border-dashed"/>
-
-            <div 
-              className="absolute bg-black left-0 -bottom-2.5 w-5 h-5 rounded-full"
-            />
-          </div>
-        </div>
-
-        <div
-          className="flex items-start p-5 text-black justify-between col-start-5 col-end-7 row-start-1 row-end-2 bg-white rounded-3xl"
-        > 
-          <div
-            className="flex flex-col h-full justify-between"
-          >
-            <h4
-              className="font-heading text-xl text-orange-400"
-            > 
-              2 Years of
-            </h4>
-
-            <p
-              className="text-black text-lg font-sans font-extrabold"
-            >
-              building Shorado, solo
-            </p>
-          </div>
-
-          <Suspense>
-            <ShoradoLogoAnimatedComponent 
-              width="60"
-              height="60"
-              speed={40}
-              meridianCount={4}  
-            
-            />
-          </Suspense>
-        </div>
-
-        <div
-          className="col-start-5 col-end-7 row-start-2 row-end-4 bg-white p-5 rounded-3xl"
-        >
-          <p
-            className="text-xl font-extrabold"
-          >
-            currently living in Munich — and for the past two years I've been building 
-              <b
-                className="inline-block mr-1.5 text-orange-400 font-heading "
-              >
-                Shorado:
-              </b> 
-              
-              <span className="mx-0.5"/>a marketplace where ad visibility is determined by the seller's reputation, not the size of your 
-              <b className="text-green-400 font-extrabold ml-2">wallet</b>.
-          </p>
-        </div>
-
-        <div
-          className="z-100 col-start-1 col-end-5 row-start-3 row-end-5 bg-yellow-300 rounded-3xl flex flex-col items-start p-5 gap-2.5"
+          className="flex  items-center w-full justify-between"
         >
           <h4
-            className="font-heading tracking-wider text-xl"
+            className="font-semibold font-mono text-sm"
           >
-            Frontend
+            01 - {SECTIONS[0].label}
           </h4>
-
-          <div
-            className="flex flex-row flex-wrap w-full gap-2 max-w-2xl" 
-          >
-            {STACK.frontend.map((skill, ind) => (
-              <span
-                key={skill + ind}
-                className="font-bold tracking-wider bg-black text-white px-2.5 rounded-md"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
         </div>
 
-        <CategorySkillCardComponent 
-          title={"Frontend"}
-          category={"frontend"}
-          items={STACK.frontend}
-          className="col-start-1 col-end-5 row-start-3 row-end-5"
-        />
-
-        <CategorySkillCardComponent 
-          title={"Infra and (CI & CD)"}
-          category={"infra"}
-          items={STACK.infra}
-          className="col-start-1 col-end-4 row-start-5 row-end-7"
-        />
-
-        <CategorySkillCardComponent 
-          title={"Backend"}
-          category={"backend"}
-          items={STACK.backend}
-          className="col-start-4 col-end-7 row-start-4 row-end-6 justify-end items-end"
-        />
-
-        <ButtonLink
-          border="secondary"
-          shape="pill"
-          padding="xl"
-          style="transparent"
-          href="/projects"
-          className="flex items-center text-white justify-between col-start-4 col-end-7 row-start-6 row-end-7 bg-orange-400 rounded-3xl"
+        <p
+          className="max-w-xl text-lg font-mono font-semibold"
         >
-          <h3
-            className="font-heading text-xl"
+          My name is Yevhenii Shorobura i am a full-stack engineer and product builder originally from 
+          Ukraine Kyiv, but now i am based in Munich. I am a self-taught - every part of my stack has been 
+          learned by milions of mistakes and errors and by shipping a real product rather than following a curriculum.
+
+        </p>
+
+        <p className="max-w-xl text-lg font-mono font-semibold">
+          Since 2024 i be a the solo engineer behind <a href="#shorado" className="text-accent underline">Shorado</a>, a Ukrainian platform running 
+          in production - designing the interface, writing the backend, and operating the infrastructure
+          the holds it together.
+        </p>
+        
+        <p className="max-w-xl text-lg font-mono font-semibold">
+          My interest sits at the seam between product and system: not just how a screen looks,
+          but what has to be true underneath it for the screen to be honest.
+        </p>
+
+        <DecorativeLineComponent />
+      </Container>
+
+      <Container
+        id={SECTIONS[1].id}
+        styles="flex flex-col justify-around py-5"
+      >
+          <div
+          className="space-y-3"
+        >
+          <h4
+            className="font-mono text-sm font-semibold"
           >
-            View Projects  
-          </h3><ChevronRight 
-            size={30}
+            07 - {SECTIONS[1].label}
+          </h4>
+
+          <h3
+            className="font-mono text-lg font-semibold max-w-xl"
+          >
+            Interfaces, applications, backends, and the systems that connect them.
+          </h3>
+        </div>
+
+        {WHAT_I_BUILD.map((tech, ind) => (
+          <CardComponent 
+            key={`wtb-${ind}`}
+            ind={ind}
+            title={tech.t}
+            description={tech.d}
+            isLast={(WHAT_I_BUILD.length - 1) === ind}
+          >
+            <div
+              className="flex items-center gap-3 pt-1.5"
+            >
+              {tech.tags.map((tag, ind) => (
+                <div
+                  key={`wtb-tag-${ind}`}
+                  className="text-text border bg-surface font-mono text-sm font-semibold py-1.5 border-line rounded-full px-3"
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </CardComponent>
+        ))}
+
+        <DecorativeLineComponent />
+      </Container>
+
+      <Container 
+        id={SECTIONS[2].id}
+        styles="flex flex-col justify-evenly"
+      >
+        <div
+          className="space-y-3"
+        >
+          <h4
+            className="font-semibold font-mono text-sm"
+          >
+            03 - {SECTIONS[2].label}
+          </h4>
+
+          <h3
+            className="max-w-xl text-lg font-mono font-semibold"
+          >
+            The stack, grouped by what it's for.
+          </h3>
+        </div>
+
+        <div
+          className="grid grid-cols-4 gap-8"
+        >
+          {STACK.map((stack, ind) => (
+            <div
+              key={stack.title + ind}
+              className="space-y-2"
+            >
+              <h5
+                className="font-mono font-bold"
+              >
+                {stack.title}
+              </h5>
+
+              <ul
+                className="space-y-1"
+              >
+                {stack.list.map((tech, ind) => (
+                  <li
+                    key={tech + ind}
+                    className="font-mono text-sm text-muted font-semibold"
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <DecorativeLineComponent />
+      </Container>
+
+        <Container
+          id={SECTIONS[3].id}
+          styles="py-5 flex flex-col justify-evenly"
+        >
+          <h4
+            className="font-semibold font-mono text-sm"
+          >
+            04 - {SECTIONS[3].label}
+          </h4>
+          
+          <div
+            className="space-y-3 py-5"
+          >
+            <h3
+              className="font-heading text-xl"
+            >
+              Shorado
+            </h3>
+
+            <p
+              className="font-mono font-semibold max-w-xl text-lg"
+            >
+              A Ukrainian marketplace built solo, exploring how listings should be discovered and ranked when visibility isn't for sale.
+            </p>     
+
+            {SHORADO.map((prob, ind) => (
+              <CardComponent 
+                ind={ind}
+                key={`sh-${ind}`}
+                title={prob.t}
+                isLast={(SHORADO.length - 1) === ind}
+                description={prob.d}
+              />
+            ))}       
+          </div>
+
+          <figcaption>
+            <Image
+              className="row-span-1 col-start-2 row-start-4 col-span-1 bg-white min-h-50 rounded-xl w-full"
+              src={"/assets/Screenshot 2026-08-15 at 22.01.08.png"}
+              alt="Screenshot of Shorado interfaces"
+              width={500}
+              height={500}
+            />
+
+            <p className="pt-8 pb-3 font-mono text-sm text-muted text-center font-semibold">
+              Shorado - product interface
+            </p>
+          </figcaption>
+
+        <DecorativeLineComponent />
+      </Container>
+
+      <Container
+        id={SECTIONS[4].id}
+        styles="flex flex-col justify-evenly py-5"
+      >
+        <div
+          className="space-y-3"
+        >
+          <h4
+            className="font-mono font-semibold text-sm"
+          >
+            05 - {SECTIONS[4].label}
+          </h4>
+
+          <h3
+            className="font-semibold font-mono text-lg"
+          >
+            Where the stack gets tested before it's trusted.
+          </h3>
+        </div>
+          
+        {SHORADO_STACK.map((prob, ind) => (
+          <CardComponent 
+            ind={ind}
+            key={`sh-stack-${ind}`}
+            title={prob.t}
+            isLast={(SHORADO_STACK.length - 1) === ind}
+            description={prob.d}
           />
-        </ButtonLink>
-      </section>
+        ))}       
+
+        <DecorativeLineComponent />
+      </Container>
+
+      <Container
+        id={SECTIONS[5].id}
+        styles="flex flex-col justify-evenly"
+      >
+        <div
+          className="space-y-3"
+        >
+          <h4
+            className="font-mono text-sm font-semibold"
+          >
+            06 - {SECTIONS[5].label}
+          </h4>
+
+          <h3
+            className="font-mono text-lg font-semibold"
+          >
+            Capability, not chronology.
+          </h3>
+        </div>
+
+        <div
+          className="grid grid-cols-2"
+        >
+          {SHORADO_BUILD_STEPS.map((step, ind) => (
+            <div
+              key={`sh-step-${ind}`}
+              className="border-x border-line px-5"
+            >
+              <CardComponent 
+                key={ind}
+                title={step.s}
+                description={step.d}
+              />
+            </div>
+          ))}
+        </div>
+
+        <DecorativeLineComponent />
+      </Container>
+
+      <Container
+        id={SECTIONS[6].id}
+        styles="flex flex-col justify-evenly gap-5"
+      >
+        <div
+          className="space-y-3"
+        >
+          <h4
+            className="font-mono text-sm font-semibold"
+          >
+            07 - {SECTIONS[6].label}
+          </h4>
+
+          <h3
+            className="font-mono text-lg font-semibold"
+          >
+            End
+          </h3>
+        </div>
+
+        <figure>
+          <blockquote>
+            <p
+              className="font-mono max-w-xl"
+            >
+              The measure of who we are is what we do with what we have.
+            </p>
+
+            <figcaption className="font-mono mt-2.5">
+              - Vince Lombardi 
+            </figcaption>
+          </blockquote>
+        </figure>
+
+        <div
+          className="space-y-3"
+        >
+          <h5
+            className="font-heading"
+          >
+            Have a project?
+            Let's build something.
+          </h5>
+        
+          <p className="font-mono font-semibold text-text">
+            i can speak in this languages: 
+          </p>
+
+          <ul
+            className="space-y-1 pb-3"
+          >
+            {LANGUAGES.map((lng, ind) => (
+              <li
+                key={`lng-${ind}`}
+                className="text-muted text-sm font-semibold font-mono"
+              >
+                {lng.title} {lng.lv}
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <div
+          className="space-y-3"
+        >
+          <a
+            className="font-mono font-semibold text-lg flex text-accent items-center gap-3"
+            href="https://www.linkedin.com/in/yevhenii-shorobura/"
+          >
+            linkedin <ArrowUpRight />
+          </a>
+
+          <a
+            className="font-mono font-semibold text-lg flex text-accent items-center gap-3"
+            href="https://github.com/mczheniok"
+          >
+            github <ArrowUpRight />
+          </a>
+          
+          <a
+            className="font-mono font-semibold text-lg flex text-accent items-center gap-3"
+            href="mailto:hello@shorado.com.ua"
+          >
+            hello@shorado.com.ua <ArrowUpRight />
+          </a>
+        </div>
+      </Container>
     </div>
   );
-}
-
-
-//         I'm self-taught. No formal CS education — everything I know about backend, databases, authorization, or infrastructure I learned while building a real product, not reading textbooks. Shorado started with a simple problem: my father, a realtor, asked me to make a website to show ads to clients. It turned out that on existing platforms, the top of the search results is simply bought — and no one sees those who don't pay. This seemed wrong to me, and that's how Shorado was born.
-
-//         I work on my own — from the design system and database architecture to authentication, real-time chats, and SEO. I like to understand things at the level of details: how to make a passkey authorization that doesn't break; how to compress images so that the page loads instantly; how to build a system where a new seller gets as much attention as an experienced one.
+};

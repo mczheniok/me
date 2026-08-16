@@ -1,13 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0E0E0E;
+  --surface: #141414;
+  
+  --line: rgba(245,241,234,0.10);
+  --line-strong: rgba(245,241,234,0.22);
+  
+  --text: #F5F1EA;
+  --muted: #87857E;
+  --accent: #F5A623;
+
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg: var(--background);
+  --color-surface: var(--surface);
+  --color-bg-glow: var(--bg-glow);
+
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
 
   --font-sans: var(--font-manrope);
   --font-heading: var(--font-unbounded);
@@ -15,12 +31,24 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0E0E0E;
+    --surface: #141414;
+    --bg-glow: rgba(14,14,14, 0.95);
+  
+    --line: rgba(245,241,234,0.10);
+    --line-strong: rgba(245,241,234,0.22);
+  
+    --text: #F5F1EA;
+    --muted: #87857E;
+    --accent: #F5A623;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text);
 }

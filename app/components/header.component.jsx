@@ -1,48 +1,52 @@
-import Link from "next/link"
+
 import { HeaderSuspenseBurgerComponent } from "./header.suspense.burger.component"
 import { Suspense } from "react"
-import { HeaderScrollEffect } from "./suspense/header.onscroll.effect";
-import { HEADER_LINKS } from "@/app/config/index";
+import { SECTIONS } from "@/app/config/index";
 
 export function HeaderComponent() {
     return (
         <header
-            className="transition-[backdrop-filter] duration-300 ease data-[blur=true]:backdrop-blur-sm w-full sticky top-0 p-5 z-10 h-13 flex flex-row gap-10 items-center justify-end md:justify-center"
+            className="
+                sticky w-full bg-bg z-[1001] top-0
+                py-1.75 sm:py-3 md:py-5 
+                border-b border-line relative
+            "
         >
-            <div className="absolute left-5 font-heading text-orange-400 font-extrabold">
-                Y. Shorobura
-            </div>
-
-            {HEADER_LINKS.map((item, ind) => {
-                return (
-                    <Link
-                        key={item.href}
-                        href={item.href}
-                        
-                        className="hidden md:block text-sm font-sans font-extrabold hover:text-orange-400 transition-colors duration-200 ease"
-                    >
-                        {item.title}
-                    </Link>
-                )
-            })}
-
             <div
-                className="block md:hidden"
+                className="w-full flex items-center justify-between max-w-7xl mx-auto px-6 sm:px-8 md:px-10"
             >
-                <Suspense fallback={
-                    <div
-                        className="h-11 h-11 bg-grey-300 "
-                    >
+                <div className="font-mono text-text font-semibold">
+                    Y. Shorobura
+                </div>
 
-                    </div>
-                }>
-                    <HeaderSuspenseBurgerComponent />
-                </Suspense>
+                <nav className="hidden md:flex-1 md:justify-end md:flex items-center justify-around gap-5">
+                    {SECTIONS.map((item) => {
+                        return (
+                            <a
+                                key={item.id + "hd-a"}
+                                href={`#${item.id}`}
+                                className="tracking-wider text-sm font-mono font-semibold hover:text-accent transition-colors"
+                            >
+                                {item.label}
+                            </a>
+                        );
+                    })}
+                </nav>
 
-                <Suspense>
-                    <HeaderScrollEffect />
-                </Suspense>
-            </div>
+                <div
+                    className="block md:hidden"
+                >
+                    <Suspense fallback={
+                        <div
+                            className="font-mono font-semibold text-text"
+                        >
+                            MENU
+                        </div>
+                    }>
+                        <HeaderSuspenseBurgerComponent />
+                    </Suspense>
+                </div>
+            </div>  
         </header>   
     )
 }
