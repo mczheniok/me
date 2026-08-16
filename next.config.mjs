@@ -3,7 +3,10 @@ const nextConfig = {
   /* config options here */
   reactCompiler: true,
   output: "export",
-  basePath: '/me'
+  basePath: '/me',
+  images: {
+    unoptimized: true
+  }
 };
 
 export default nextConfig;
