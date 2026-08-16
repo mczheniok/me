@@ -71,7 +71,7 @@ export default function Home() {
           quality={100}
           className="h-full top-0 left-0 rounded-xl absolute w-full object-cover z-5 pointer-events-none object-right md:object-center"
           alt="Yevhenii Shorobura Picture"
-          src="/assets/me.webp"
+          src={"/me/assets/me.webp"}
         />
 
         <div 
@@ -254,7 +254,7 @@ export default function Home() {
           <figcaption>
             <Image
               className="row-span-1 col-start-2 row-start-4 col-span-1 bg-white min-h-50 rounded-xl w-full"
-              src={"/assets/shorado-screenshot.webp"}
+              src={"/me/assets/shorado-screenshot.webp"}
               alt="Screenshot of Shorado interfaces"
               width={500}
               height={500}

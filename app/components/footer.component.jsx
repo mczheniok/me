@@ -3,7 +3,7 @@ import { ShoradoLogoComponent } from "./logos/shorado.logo.component";
 export function FooterComponent() {
     return (
         <footer
-            className="flex items-center justify-between py-10 max-w-7xl mx-auto px-6 sm:px-8 md:px-10"
+            className="flex flex-col gap-10 md:gap-3 md:flex-row items-center justify-between py-10 max-w-7xl mx-auto px-6 sm:px-8 md:px-10"
         >
             <div
                 className="space-y-3"
